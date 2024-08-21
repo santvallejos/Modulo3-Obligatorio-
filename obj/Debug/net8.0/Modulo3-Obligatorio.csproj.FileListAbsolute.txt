@@ -1,0 +1,14 @@
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\bin\Debug\net8.0\Modulo3-Obligatorio.exe
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\bin\Debug\net8.0\Modulo3-Obligatorio.deps.json
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\bin\Debug\net8.0\Modulo3-Obligatorio.runtimeconfig.json
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\bin\Debug\net8.0\Modulo3-Obligatorio.dll
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\bin\Debug\net8.0\Modulo3-Obligatorio.pdb
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.AssemblyInfoInputs.cache
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.AssemblyInfo.cs
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.csproj.CoreCompileInputs.cache
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.dll
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\refint\Modulo3-Obligatorio.dll
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.pdb
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\Modulo3-Obligatorio.genruntimeconfig.cache
+C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\obj\Debug\net8.0\ref\Modulo3-Obligatorio.dll
