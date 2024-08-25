@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Modulo3_Obligatorio
-build_property.ProjectDir = C:\Users\Santi\Desktop\Bootcamp Devlights 3.0\.Net\Practicas\Modulo3-Obligatorio\
+build_property.ProjectDir = /Users/soficubilla/Documents/VSC/Dotnet Bootcamp/Modulo3-Obligatorio-/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
