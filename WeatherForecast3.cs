@@ -9,13 +9,27 @@ namespace Modulo3_Obligatorio
     public class User
     {
         public Names Name { get; set; }
-        public Positions Position { get; set;}
+        private Positions _position { get; set;}
+        public Positions Position
+        {
+            get { return _position; }
+            set 
+            {
+                if(Name == Names.Santiago || Name == Names.Lola || Name == Names.Valentin)
+                {
+                    _position = Positions.Pasante;
+                }
+                else
+                {
+                    _position = Positions.Profecional;
+                }
+            }
+        }
 
-        //Definimos al Usuario con su nombre y posición
-        public User(Names name, Positions position)
+        //Definimos 
+        public User(Names name)
         {
             Name = name;
-            Position = position;
         }
 
         public enum Names
@@ -37,7 +51,19 @@ namespace Modulo3_Obligatorio
 
     public class TemperatureRecord
     {
-        public int Temperature { get; set; }
+        private int _temperature { get; set; }
+        public int Temperature
+        {
+            get { return _temperature; }
+            set 
+            {
+                if(value < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(Temperature),"La temperatura ingresada es Menor a 0");
+                }
+                _temperature = value;
+            }
+        }
         public User PersonTurn { get; set; }
         public string RegistrationDate { get; set; }
         public string RegistrationTime { get; set; }
@@ -58,15 +84,27 @@ namespace Modulo3_Obligatorio
         public TemperatureRecord[,] tempsRecords;
 
         //Añadir los registros 
-        public void AddTemperatureRecord(TemperatureRecord record, int week, int days)
+        public void AddTemperatureRecord(TemperatureRecord record, int weeks, int days)
         {
-            if (week >= 0 && week < tempsRecords.GetLength(0) && days >= 0 && days < tempsRecords.GetLength(1))
+            if (weeks >= 0 && weeks < tempsRecords.GetLength(0) && days >= 0 && days < tempsRecords.GetLength(1))
             {
-                tempsRecords[week, days] = record;
+                if(weeks == 0  && days == 0)
+                {
+                    tempsRecords[weeks, days] = record;
+                }
+                else if (tempsRecords[weeks, days].PersonTurn.Position == tempsRecords[weeks, days - 1].PersonTurn.Position)
+                {
+                    Console.WriteLine("\nEl registro porque el usuario anterior que registro es de su misma posicion");
+                }
+                else
+                {
+                    tempsRecords[weeks, days] = record;
+                }
+                
             }
             else
             {
-                Console.WriteLine("\nError al ingresar el registro a la matriz!.");
+                Console.WriteLine("\nError al ingresar el registro!.");
             }
         }
 
