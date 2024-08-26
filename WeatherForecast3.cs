@@ -9,13 +9,13 @@ namespace Modulo3_Obligatorio
     public class User
     {
         public Names Name { get; set; }
-        private Positions _position { get; set;}
+        private Positions _position { get; set; }
         public Positions Position
         {
             get { return _position; }
-            set 
+            set
             {
-                if(Name == Names.Santiago || Name == Names.Lola || Name == Names.Valentin)
+                if (Name == Names.Santiago || Name == Names.Lola || Name == Names.Valentin)
                 {
                     _position = Positions.Pasante;
                 }
@@ -55,11 +55,11 @@ namespace Modulo3_Obligatorio
         public int Temperature
         {
             get { return _temperature; }
-            set 
+            set
             {
-                if(value < 0)
+                if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(Temperature),"La temperatura ingresada es Menor a 0");
+                    throw new ArgumentOutOfRangeException(nameof(Temperature), "La temperatura ingresada es Menor a 0");
                 }
                 _temperature = value;
             }
@@ -88,7 +88,7 @@ namespace Modulo3_Obligatorio
         {
             if (weeks >= 0 && weeks < tempsRecords.GetLength(0) && days >= 0 && days < tempsRecords.GetLength(1))
             {
-                if(weeks == 0  && days == 0)
+                if (weeks == 0 && days == 0)
                 {
                     tempsRecords[weeks, days] = record;
                 }
@@ -100,7 +100,7 @@ namespace Modulo3_Obligatorio
                 {
                     tempsRecords[weeks, days] = record;
                 }
-                
+
             }
             else
             {
@@ -118,6 +118,51 @@ namespace Modulo3_Obligatorio
             else
             {
                 throw new ArgumentOutOfRangeException("Los índices de fila o columna están fuera de los límites de la matriz.");
+            }
+        }
+
+        public static class CalculateTemperatures
+        {
+            public static void averageWeeks(TemperatureRecord[,] records)
+            {
+                List<int> averageTempsWeeks = new List<int>();
+
+                for (int i = 0; i < records.GetLength(0); i++)
+                {
+                    int sum = 0;
+                    int cont = 0;
+                    for (int j = 0; j < records.GetLength(1); j++)
+                    {
+                        if (records[i, j]?.Temperature != null)
+                        {
+                            sum += records[i, j].Temperature;
+                            cont++;
+                        }
+                    }
+
+                    //Si el contador permanece en 0 indica que la semana no contiene ningun registro aun
+                    if (cont == 0)
+                    {
+                        Console.WriteLine($"\nLa Semana {i + 1} no tiene ningun registro");
+                    }
+                    else //en el otro caso calcula el promedio y lo notifica
+                    {
+                        int average;
+
+                        if (i == records.GetLength(0) - 1)
+                        {
+                            average = sum / 3;
+                        }
+                        else
+                        {
+                            average = sum / 7;
+                        }
+
+                        averageTempsWeeks.Add(average);//Lo inserta en la lista
+
+                        Console.WriteLine($"\nEl promedio de la semana {i + 1} es: {averageTempsWeeks[i]}");
+                    }
+                }
             }
         }
 
