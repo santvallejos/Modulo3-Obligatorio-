@@ -94,7 +94,7 @@ namespace Modulo3_Obligatorio
                 }
                 else if (tempsRecords[weeks, days].PersonTurn.Position == tempsRecords[weeks, days - 1].PersonTurn.Position)
                 {
-                    Console.WriteLine("\nEl registro porque el usuario anterior que registro es de su misma posicion");
+                    Console.WriteLine("\nEl registro no se puede ingresar porque el usuario anterior que registro es de su misma posicion");
                 }
                 else
                 {
@@ -123,7 +123,7 @@ namespace Modulo3_Obligatorio
 
         public static class CalculateTemperatures
         {
-            public static void averageWeeks(TemperatureRecord[,] records)
+            public static void AverageWeeks(TemperatureRecord[,] records)
             {
                 List<int> averageTempsWeeks = new List<int>();
 
@@ -161,6 +161,36 @@ namespace Modulo3_Obligatorio
                         averageTempsWeeks.Add(average);//Lo inserta en la lista
 
                         Console.WriteLine($"\nEl promedio de la semana {i + 1} es: {averageTempsWeeks[i]}");
+                    }
+                }
+            }
+
+            public static void Threshold(TemperatureRecord[,] records)
+            {
+                List<TemperatureRecord> threshold = new List<TemperatureRecord>();
+
+                for (int i = 0; i < records.GetLength(0); i++) //Recorre las filas
+                {
+                    for (int j = 0; j < records.GetLength(1); j++) // Recorre las columnas
+                    {
+                        //Si el valor es mayor a 20 se guarda en el umbral
+                        if (records[i, j]?.Temperature != null && records[i, j].Temperature > 20)
+                        {
+                            threshold.Add(records[i, j]);
+                        }
+                    }
+                }
+
+                if (threshold.Count == 0)
+                {
+                    Console.WriteLine("\nNo hay registros de temperaturas que superen el umbral!");
+                }
+                else
+                {
+                    Console.WriteLine("\nLas temperaturas que superaron el umbral son: ");
+                    foreach (var item in threshold)
+                    {
+                        Console.WriteLine($"{item.Temperature}° -> Regitrada el {item.RegistrationDate} a las {item.RegistrationTime} por {item.PersonTurn.Name}({item.PersonTurn.Position})");
                     }
                 }
             }
