@@ -57,9 +57,9 @@ namespace Modulo3_Obligatorio
             get { return _temperature; }
             set
             {
-                if (value < 0)
+                if (value < -20 && value > 60)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(Temperature), "La temperatura ingresada es Menor a 0");
+                    throw new ArgumentOutOfRangeException(nameof(Temperature), "La temperatura ingresada es Menor a -21° o mayor a 60°");
                 }
                 _temperature = value;
             }
@@ -217,6 +217,56 @@ namespace Modulo3_Obligatorio
                 double averageTempsMonth = sum / 31;
 
                 Console.WriteLine($"\nEl promedio de temperatura del mes es: {averageTempsMonth:F2}");
+                }
+            }
+
+            public static void TempsHigher(TemperatureRecord[,] records)
+            {
+                int max = -20;
+
+                for (int i = 0; i < records.GetLength(0); i++)
+                {
+                    for (int j = 0; j < records.GetLength(1); j++)
+                    {
+                        if(records[i, j]?.Temperature != null && records[i, j].Temperature > max)
+                        {
+                            max = records[i, j].Temperature;
+                        }
+                    }
+                }
+
+                if(max == -21)
+                {
+                    Console.WriteLine("No se encuentran temperaturas registradas");
+                }
+                else
+                {
+                    Console.WriteLine($"\nLa temperatura más alta del mes es: {max}°");
+                }
+            }
+
+            public static void TempsLess(TemperatureRecord[,] records)
+            {
+                int min = 61;
+
+                for (int i = 0; i < records.GetLength(0); i++)
+                {
+                    for (int j = 0; j < records.GetLength(1); j++)
+                    {
+                        if(records[i, j]?.Temperature != null && records[i, j].Temperature < min)
+                        {
+                            min = records[i, j].Temperature;
+                        }
+                    }
+                }
+
+                if(min == 61)
+                {
+                    Console.WriteLine("No se encuentran temperaturas registradas");
+                }
+                else
+                {
+                    Console.WriteLine($"\nLa temperatura más baja del mes es: {min}°");
                 }
             }
         }
