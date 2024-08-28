@@ -181,7 +181,7 @@ namespace Modulo3_Obligatorio
                     }
                 }
 
-                if (threshold.Count == 0)
+                if (threshold.Count == 0)//Evaluar si la lista tiene elementos
                 {
                     Console.WriteLine("\nNo hay registros de temperaturas que superen el umbral!");
                 }
@@ -192,6 +192,31 @@ namespace Modulo3_Obligatorio
                     {
                         Console.WriteLine($"{item.Temperature}° -> Regitrada el {item.RegistrationDate} a las {item.RegistrationTime} por {item.PersonTurn.Name}({item.PersonTurn.Position})");
                     }
+                }
+            }
+
+            public static void AverageTempsMonth(TemperatureRecord[,] records)
+            {
+                double sum = 0;
+                int cont = 0 ;
+                foreach (var item in records)
+                {
+                    if(item?.Temperature != null)
+                    {
+                        sum += item.Temperature;
+                        cont++;
+                    }
+                }
+
+                if(cont == 0)
+                {
+                    Console.WriteLine("\nNo se encuentran registros en la matriz!");
+                }
+                else
+                {
+                double averageTempsMonth = sum / 31;
+
+                Console.WriteLine($"\nEl promedio de temperatura del mes es: {averageTempsMonth:F2}");
                 }
             }
         }
